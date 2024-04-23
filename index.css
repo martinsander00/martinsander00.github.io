@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    background: transparent; /* Make sure body has a transparent background */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* Stacking context for pseudo-element */
+    z-index: 0; /* Stacking context for child elements */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #8195e3;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px);
+    z-index: -1;
+}
+
+.hero {
+    display: flex; /* Establish flex container */
+    align-items: center; /* Align children vertically */
+    justify-content: center; /* Center children horizontally */
+    padding: 20px;
+    gap: 50px; /* Add some space between the text and the image */
+}
+
+.hero > div:first-child {
+    flex: 1; /* Allows the text div to grow */
+    text-align: left; /* Align the text to the left */
+}
+
+.hero > div:last-child {
+    flex: 0; /* The image div will not grow and will wrap the content */
+}
+
+.hero-image {
+    max-width: 250px; /* Adjust the size of the icon */
+    height: auto;
+    display: block; /* Center the image */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    color: #9fbff5;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 20px auto;
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 20px 80px; /* Increase horizontal padding on larger screens */
+    }
+
+    .hero > div:first-child {
+        max-width: 50%; /* Limit width of the text div on larger screens */
+    }
+
+    .hero > div:last-child {
+        max-width: 40%; /* Limit width of the image div on larger screens */
+    }
+}
+
+.social-icons {
+    margin-top: 20px; /* Adjust the space between the text and the icons */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the space between the icons */
+}
+
+.social-icons a {
+    color: #9fbff5; /* Color of the icons */
+    font-size: 1.5rem; /* Size of the icons */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff; /* Color of the icons on hover */
+}
